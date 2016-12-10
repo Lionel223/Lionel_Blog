@@ -1,0 +1,286 @@
+@import url(normalize.css);
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+html{
+    height: 100%;
+}
+body{
+    position: relative;
+    margin: 0;
+    max-width: 100%;
+    min-height: 100%;
+}
+
+
+/*   navbar   */
+.navbar{
+    list-style-type:none;
+    margin:0;
+    padding: 0;
+    background-color: black;
+    overflow:hidden;
+}
+
+ul.navbar li{
+    float:left;
+}
+
+ul.navbar li.loginLink, ul.navbar li.name, ul.navbar li.addLink{
+    float:right;
+}
+
+header>ul>li>a,
+.name,
+.home .homeLink,
+.about .aboutLink,
+.contact .contactLink,
+.tutorial .tutorialLink,
+.login .loginLink,
+.add .addLink {
+    display:block;
+    text-align:center;
+    padding:10px 20px;
+}
+.home .homeLink,    /*add bottom line*/
+.about .aboutLink,
+.contact .contactLink,
+.tutorial .tutorialLink,
+.login .loginLink,
+.add .addLink{
+    border-bottom:3px solid white;
+}
+ul.navbar li a, ul.navbar li{
+    color: white;
+    text-decoration: none;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+ul.navbar>li>a:hover{
+    background-color: rgb(93,43,78);
+}
+
+/*    topic    */
+.head_description{
+    margin:0;
+    max-width: 100%;
+    padding: 20px 0;
+    padding-left:30px;
+    background-color: rgb(93,43,78); 
+    background-image: -webkit-linear-gradient(right, rgb(93,43,78), rgb(8,2,50));
+}
+.head_description h1{
+    line-height: 0;
+    font-size: 3em;
+    color: white;
+    font-weight: bold;
+}
+/*    topic end    */
+
+
+/*    contact page    */
+.contact div.form{
+    margin: 0 auto;
+    width: 67%;
+    margin: 0 auto;
+    padding-bottom: 80px;
+    font-size: 1.2em;
+    font-family:Tahoma, Geneva, sans-serif;
+}
+.contact h2{
+    font-size: 2em;
+    font-weight: normal;
+    border-bottom: dotted 2px rgba(5,5,5,.5);
+    padding-bottom: 4px;	
+    margin: 25px 0;
+}
+.contact label {
+    margin-bottom: 25px;	
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.contact input[type="text"], .contact textarea {
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(0,0,90,.3);
+    color: rgba(0,0,255,1);
+    width: 60%;
+    padding: 5px;
+}
+.contact input[type="text"]:focus, .contact textarea:focus{
+    background-color: #ffffff;
+
+}
+.contact input[type="submit"]  {
+    margin-left: 220px;
+    padding: 10px 25px;
+    font-size: 1em;
+    color: black;
+    background: rgb(0,102,153);
+    background: linear-gradient(to bottom, rgba(5,5,5,.1) 40%, rgba(255,255,255,.5));
+    background: -webkit-linear-gradient(to bottom, rgba(55,55,55,.1) 40%, rgba(255,255,255,.5));
+    border-radius: 5px;
+    box-shadow: 0 0 4px white;
+}
+
+
+/*    login && add article && modify   */
+.login div.form, .add div.form, .modify div.form{
+    margin: 0 auto;
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 120px;
+    font-size: 1.2em;
+    font-family:Tahoma, Geneva, sans-serif;
+}
+.add div.form, .modify div.form{
+    width: 80%
+}
+.login h2, .add h2, .modify h2{
+    font-size: 2em;
+    font-weight: normal;
+    border-bottom: dotted 2px rgba(5,5,5,.5);
+    padding-bottom: 4px;	
+    margin: 25px 0;
+}
+.login label, .add label, .modify label {
+    margin-bottom: 25px;	
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    text-align: right;
+    margin-right: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.add label, .modify label{
+    width: 20%
+}
+.add textarea, .modify textarea{
+    width: 786px;
+    max-width: 786px;
+    height: 267px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(0,0,90,.3);
+    color: rgba(0,0,255,1);
+}
+.login input[type="text"], 
+.login input[type="password"],
+.add input[type='text'],
+.modify input[type='text']{
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(0,0,90,.3);
+    color: rgba(0,0,255,1);
+    width: 30%;
+    padding: 5px;
+}
+.add input[type="text"],
+.modify input[type="text"]{
+    width: 786px;
+
+}
+.login input[type="text"]:focus, 
+.login input[type="password"]:focus,
+.add input[type="text"]:focus,
+.add textarea:focus,
+.modify input[type="text"]:focus,
+.modify textarea:focus{
+    background-color: #ffffff;
+
+}
+.login input[type="submit"],
+.add input[type="submit"],
+.modify input[type="submit"] {
+    margin-left: 220px;
+    padding: 10px 25px;
+    font-size: 1em;
+    color: black;
+    background: rgb(0,102,153);
+    background: linear-gradient(to bottom, rgba(5,5,5,.1) 40%, rgba(255,255,255,.5));
+    background: -webkit-linear-gradient(to bottom, rgba(55,55,55,.1) 40%, rgba(255,255,255,.5));
+    border-radius: 5px;
+    box-shadow: 0 0 4px white;
+}
+/*    login end    */
+
+
+/*    for about page    */
+ol.weird{
+    margin-bottom: 0;
+    padding-bottom: 100px;
+}
+
+
+
+/*    tutorial page    */
+div.contentWrapper{
+    display: flex;
+    align-items: stretch;
+    background-color:black; 
+    margin: 0 auto;
+    
+}
+div.left_nav { 
+    color: white;
+    flex: 1;
+    text-align: center;
+    padding-bottom: 50px;
+    min-height: 1000px;
+}
+div.main{
+    text-align: center;
+    flex: 3;
+    padding: 0px 5% 100px 5%;
+    background-image: linear-gradient(to bottom, rgb(176,194,213), white);
+
+}
+.left_nav ul.left_bar li{
+    text-decoration: none;
+    list-style-type:none;
+    text-align: left;
+    margin:0;
+    padding: 0;
+    font-size: 20px;
+}
+
+/*    tutorial end    */
+
+
+
+footer{
+    clear: both;
+    background-color: #333;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+footer p{    /*change font-family, add link(linkin, github)*/
+    font-weight: bold;
+    color: white;
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 20px 0px 20px 200px;
+    display: inline-block;
+}
+
+footer img{
+    float: right;
+    margin-right: 30px;
+    margin-top: 13px;
+    transform: rotate(0deg);
+    transition-property: transform;
+    transition-duration: .7s;
+
+}
+footer img:hover{
+    transform: rotate(360deg);
+}

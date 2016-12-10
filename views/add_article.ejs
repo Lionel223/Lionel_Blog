@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--[if it IE9]>
+    <script src=”//html5shiv.googlecode.com/svn/trunk/html5.js”></script>
+    <![endif]-->
+    <title>About Me</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+</head>
+
+<body class="add">
+
+<header>
+<!--    nav    -->
+    <ul class="navbar">
+        <li><a href="/" class="homeLink">home</a></li>
+        <li><a href="/about" class="aboutLink">about</a></li>
+        <li><a href="/contact" class="contactLink">contact</a></li>
+        <li><a href="/tutorial" class="tutorialLink">tutorial</a></li>
+        <!--sign in-->
+        <%    if(username && authenticated){    %>
+        <li class="loginLink"><a href="/users/signout">sign out</a></li>
+        <li class="name">Welcome! <%= username %></li>
+        <li class="addLink">add article</li>
+        <!--sign out-->
+        <%    }else{    %>
+        <li class="loginLink"><a href="/users/signin">sign in</a></li>
+        <%    }    %>
+    </ul>
+<!--    nav end    -->
+<!--    topic    -->
+    <div class="head_description">
+        <h1>Test<!--add article--></h1>
+    </div>
+<!--    topic end    -->
+</header>
+
+<div class="form">
+    <h2>Add Article</h2>
+    <form method="post", action="/apis/add">
+        <!--Classification-->    <!--    使用mongodb存取classification    -->
+        <p>    
+            <label>Select a classification</label>
+            <input type="radio" name="Classification" value="HTML">HTML &amp CSS
+            <input type="radio" name="Classification" value="Javascript">Javascript
+            <input type="radio" name="Classification" value="Node">Node
+            <input type="radio" name="Classification" value="Linux">Linux
+            <input type="radio" name="Classification" value="Database">Database
+            <input type="radio" name="Classification" value="test">add other
+        </p>
+        <!--    Topic    -->
+        <p>
+            <label>Topic</label>
+            <input type="text" name="Topic">
+        </p>
+        <!--    main article    -->
+        <p>
+            <label>Article</label>
+            <textarea type="text" name="Content"></textarea>
+        </p>
+        <input type="submit" name="submit" value="save">
+    </form>
+
+</div>
+
+
+<footer>
+    <p>Copyright © 2016 Lionel</p>
+    <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
+    <a href="http://google.com"><img src="../images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>
+    
+</footer>
+
+
+</body>
+</html>

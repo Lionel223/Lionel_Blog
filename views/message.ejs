@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leave Your Message</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css"  href="../../stylesheets/style.css">
+</head>
+<body>
+	<div style='float:left;margin:10px;'><a href="/">Home</a></div>
+	<div style="float:right">
+	<% if(username && authenticated){	%>
+		<span><%= username %></span>
+		<div class="login"><a href="/users/profile">Profile</a></div>
+		<div class="login"><a href="/users/add_article">Add article</a></div>
+		<div class="login"><a href="/users/signout">sign out</a></div>		<!--done-->
+	<%  }else{	%>
+		<div class="login"><a href="/users/signin">sign in</a></div>		<!--done-->
+		<div class="login"><a href="/users/register">Register</a></div>		<!--done-->
+<%	}	%>
+	</div>
+
+
+
+
+
+
+<div style='padding:50px;'>
+	<h1>title</h1>
+
+
+
+
+<%	blogs.forEach(function(blogs){	%>
+		<div>
+			<div style='float:left;margin-top:10px;'><%= blogs.Username %></div>
+			<div style='float:right;margin-top:10px;'><%= blogs.CreateDate %></div>
+			<br>
+			<div style='clear:both'><%= blogs.Article %></div>
+			<hr style='margin-top:30px;'>
+			<br>
+			<br>
+		</div>
+	<div style='width:40%;margin-left:30%; '>
+<%	});	%>
+
+
+<%	comments.forEach(function(comments){	%>
+			<div style='right:42%; margin-top:20px;'>
+				<div style='float:left;margin-top:10px;'><%= comments.Visitor %></div>
+				<div style='float:right;margin-top:10px;'><%= comments.CreateDate %></div>
+				<br>
+				<div style='clear:both'><%= comments.Comment %></div>
+				<hr style='margin-top:30px;'>
+				<br>
+				<br>
+			</div>
+	</div>
+<%	});	%>
+
+
+
+
+
+
+	<div style='margin-left:30%; '>
+		<form name="comment", action="/apis/comment/" + messageID, method="post">
+			<h1>Leave a message</h1>
+			<div>
+				<p>
+					<span>Name:</span> 
+					<input type="text", name="Visitor">
+				</p>
+				<p>
+					<textarea cols="50", rows="10", style='resize : none;', name="Comment"></textarea>
+				</p>
+				<div>
+					<span style='padding-right:377px'></span>
+					<input type="submit", name="submit", value="Reply ">
+					<hr style='width:50%;margin-top:30px;margin-left:0%;'>
+					<br>
+					<br>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+</body>
+</html>

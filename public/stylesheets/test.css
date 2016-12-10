@@ -1,0 +1,25 @@
+.universe {
+	display: block;
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+}
+
+.my-sun {
+	position: absolute;
+	display: inline-block;
+	left: calc(50vw - 50px);
+	/*left: -webkit-calc(50vw - 50px);*/
+	top: calc(50vh - 50px);
+	/*top: -webkit-calc(50vh - 50px);*/
+	color: yellow;
+	font-size: 100px;
+}
+
+.my-earth {
+	position: absolute;
+	display: inline-block;
+	color: blue;
+	font-size: 50px;
+}

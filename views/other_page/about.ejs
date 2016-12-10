@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--[if it IE9]>
+    <script src=”//html5shiv.googlecode.com/svn/trunk/html5.js”></script>
+    <![endif]-->
+    <title>About Me</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+</head>
+
+<body class="about">
+
+<header>
+<!--    nav    -->
+    <ul class="navbar">
+        <li><a href="/" class="homeLink">home</a></li>
+        <li class="aboutLink">about</li>
+        <li><a href="/contact" class="contactLink">contact</a></li>
+        <li><a href="/tutorial" class="tutorialLink">tutorial</a></li>
+        <!--sign in-->
+        <%    if(username && authenticated){    %>
+        <li class="loginLink"><a href="/users/signout">sign out</a></li>
+        <li class="name">Welcome! <%= username %></li>
+        <li class="addLink"><a href="/users/add_article">add article</a></li>
+        <!--sign out-->
+        <%    }else{    %>
+        <li class="loginLink"><a href="/users/signin">sign in</a></li>
+        <%    }    %>
+    </ul>
+<!--    nav end    -->
+<!--    topic    -->
+    <div class="head_description">
+        <h1>Test<!--About Me--></h1>
+    </div>
+<!--    topic end    -->
+</header>
+
+
+
+<!--    Graduate certificate    -->
+
+
+
+    <h1>Education</h1>
+    <ol>
+        <li>TCFSH</li>
+        <li>Department of Physics    National Kaohsiung Normal University</li>
+        <li>master of physic</li>
+    </ol>
+
+    <h1>ability</h1>
+    <ol>
+        <li>HTML  CSS  Javascript </li>
+        <li>back-end  JS</li>
+    </ol>
+
+    <h1>Preference</h1>
+    <ol class="weird">
+        <li>photo</li>
+        <li>read</li>
+        <li>learn new thing</li>
+    </ol>
+
+
+
+
+
+<footer>
+    <p>Copyright © 2016 Lionel</p>
+    <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
+    <a href="http://google.com"><img src="/images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>
+    
+</footer>
+
+
+</body>
+</html>

@@ -19,6 +19,7 @@
     "serve-favicon": "~2.3.0",
     "cookie-session":"*",
     "mongoose":"*",
-    "jquery":"*"
+    "jquery":"*",
+    "markdown": "0.5.0"
   }
 }

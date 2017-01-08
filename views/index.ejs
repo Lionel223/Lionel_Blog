@@ -7,6 +7,7 @@
     <title>Lionel's blog</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css"  href="../stylesheets/style.css">
+
 </head>
 
 <body class="home">
@@ -31,34 +32,39 @@
 <!--    nav end    -->
 <!--    topic    -->
     <div class="head_description">
-        <h1>Test<!--Lionel's blog!--></h1>
+        <h1><a href="/">Lionel's blog</a></h1>
     </div>
 <!--    topic end    -->
 </header>
 
-
-
-<p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p><p>test</p>
-
-<!--animate-->
-<!--article     (put it in tutorial)    -->
-<!--
-<%    blogs.forEach(function(blogs){    %>
+    <%  blogs.forEach(function(blogs){  %>
     <div class="main_article">
-        <div class="article">Topic: <%= blogs.Topic %></div>
-        <div class="article">Article: <%= blogs.Article %></div>
-        <div class="article"><a href="/users/message/<%= blogs.id %>">Leave a message</a></div>
+        <h3><%= blogs.Topic %><span>
+        <%= blogs.CreateDate.toLocaleDateString("zh-CN") %> 
+        </span></h3>
+        <div class="article"><%- blogs.Article %></div>
+        <%= blogs.Classification %>
+        <a href="/tutorial/<%= blogs.id %>">Read More</a>
     </div>
-<%    });    %>
--->
+    <%  })  %>
+<br><br>
+<script>
+function partial_article(){
+    var article = document.getElementsByClassName("article");
+    for(i=0;i<article.length;i++){
+        article[i].textContent = article[i].textContent.substring(0,300)+"...";
+    }
+};
+window.onload = function(){
+    partial_article();
+}
+</script>
 
 <footer>
     <p>Copyright © 2016 Lionel</p>
     <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
-    <a href="http://google.com"><img src="/images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>
-    
+    <a href="http://google.com"><img src="../images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>
 </footer>
-
 
 </body>
 </html>

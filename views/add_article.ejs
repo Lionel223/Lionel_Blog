@@ -4,9 +4,10 @@
     <!--[if it IE9]>
     <script src=”//html5shiv.googlecode.com/svn/trunk/html5.js”></script>
     <![endif]-->
-    <title>About Me</title>
+    <title>Add article</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <script src="../ckeditor/ckeditor.js"></script>
 </head>
 
 <body class="add">
@@ -47,17 +48,16 @@
             <input type="radio" name="Classification" value="Node">Node
             <input type="radio" name="Classification" value="Linux">Linux
             <input type="radio" name="Classification" value="Database">Database
-            <input type="radio" name="Classification" value="test">add other
+            <input type="radio" name="Classification" value="test">增加新類別
         </p>
         <!--    Topic    -->
-        <p>
-            <label>Topic</label>
-            <input type="text" name="Topic">
-        </p>
+        <h2>
+            <input type="text" name="Topic" placeholder="Topic標題">
+        </h2>
         <!--    main article    -->
         <p>
-            <label>Article</label>
             <textarea type="text" name="Content"></textarea>
+            <script>CKEDITOR.replace( 'Content', {});</script>
         </p>
         <input type="submit" name="submit" value="save">
     </form>

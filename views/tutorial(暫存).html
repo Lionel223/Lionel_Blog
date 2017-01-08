@@ -1,0 +1,30 @@
+<%    all.forEach(function(blogs){    %>
+        <p>Topic: <%= blogs.Topic %></p>
+<%    });    %>
+<p><%= all[0].Classification %></p>
+
+                <%  blogs.forEach(function(blogs){    %>
+                    <p><%= blogs %></p>
+                    <ul>
+
+                    </ul>
+                <%    })    %>
+
+
+
+
+
+
+//  index.js (tutorial page)
+    Blog.find(function(err,all,count){
+        Blog.find().distinct("Classification",function(err,blogs){
+            if(err){
+                res.send(err);
+            }else{
+                res.render('./other_page/tutorial',{
+                    all:all,
+                    blogs:blogs
+                });
+            }
+        });
+    });

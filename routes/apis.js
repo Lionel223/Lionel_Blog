@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = mongoose.model('Blog');
+var Contact = mongoose.model('Contact');
 var Comment = mongoose.model('Comment');
 
 /*logined   register*/
@@ -16,6 +17,21 @@ router.post('/login', function(req, res, next) {
 	req.session.logined = true;
 	res.redirect('/');
 });
+router.post('/contact', function(req, res, next){
+	new Contact({
+		Name: req.body.Name,
+		Contact: req.body.Contact,
+		Comment: req.body.Comment,
+		CreateDate: Date.now()
+	}).save(function(err){
+		if(err){
+			console.log("Fail to save to DB.\n");
+			return;
+		}
+		console.log("Save to DB.\n");
+	});
+	res.redirect("/");
+})
 
 /*add article*/
 router.post('/add', function(req, res, next) {
@@ -66,7 +82,7 @@ router.post('/update/:id', function(req, res, next) {
 	res.redirect('/tutorial');
 });
 
-/*comment*/
+/*  comment暫時沒有  */
 router.post('/comment/:id', function(req, res, next) {
 	if (!req.params.id){
 		res.redirect('/');

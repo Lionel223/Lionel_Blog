@@ -36,43 +36,37 @@
 
     <div class="left_nav">
         <ul class="left_bar">
-            <li style="margin-bottom:3px; font-weight: bold; font-style:italic;">HTML &amp CSS</li>
-<!--error!!!    blogs.find({Classification:"HTML"},function(err,blog){    -->
-<!--無法直接由mongodb篩選certification，故在html透過if迴圈做選擇-->
-            <%        blogs.forEach(function(blog){            %>
-            <%            if(blog.Classification=="HTML"){        %>
-                        <li style="margin-bottom:3px; padding-left: 25px"><a href="/tutorial/<%= blog.id %>" style="text-decoration:none; color:white"><%= blog.Topic %></a></li>
-            <%    }    %>
-            <%    })    %>
-                
-            <li style="margin-bottom:3px">javascript</li>
-
-            <%    blogs.forEach(function(blog){    %>
-            <%    if(blog.Classification=="Javascript"){    %>
-                        <li style="margin-bottom:3px; padding-left: 25px"><a href="/tutorial/<%= blog.id %>" style="text-decoration:none; color:white"><%= blog.Topic %></a></li>
-            <%            }    %>
-            <%        })    %>
-            <li style="margin-bottom:3px">node.js</li>
-            <%        blogs.forEach(function(blog){            %>
-            <%            if(blog.Classification=="Node"){    %>
-                        <li style="margin-bottom:3px; padding-left: 25px"><a href="/tutorial/<%= blog.id %>" style="text-decoration:none; color:white"><%= blog.Topic %></a></li>
-            <%            }    %>
-            <%        })    %>
-            <li style="margin-bottom:3px">Linux</li>
-            <%        blogs.forEach(function(blog){            %>
-            <%            if(blog.Classification=="Linux"){    %>
-                        <li style="margin-bottom:3px; padding-left: 25px"><a href="/tutorial/<%= blog.id %>" style="text-decoration:none; color:white"><%= blog.Topic %></a></li>
-            <%            }    %>
-            <%        })    %>
-            <li style="margin-bottom:3px">Database</li>
-            <%        blogs.forEach(function(blog){            %>
-            <%            if(blog.Classification=="Database"){    %>
-                        <li style="margin-bottom:3px; padding-left: 25px"><a href="/tutorial/<%= blog.id %>" style="text-decoration:none; color:white;"><%= blog.Topic %></a></li>
-            <%            }    %>
-            <%        })    %>
+                <% for(i in BlogDistinct){ %>
+                    <div class="reveal"><li class="handle"><%= BlogDistinct[i] %></li>
+                        <ul><% all.forEach(function(bb){ 
+                                        if(bb.Classification==BlogDistinct[i]){  %>
+                                    <li><a href="/tutorial/<%= bb.id %>"><%= bb.Topic %></a></li>
+                            <% }}); %>
+                        </ul>
+                    </div>
+                <% }; %>
         </ul>
     </div>
 
+<script>
+window.onload = function(){
+    var elements = document.getElementsByClassName("reveal");
+    for(var i=0;i<elements.length;i++){
+        var elt = elements[i];
+        var title = elt.getElementsByClassName('handle')[0];
+        addRevealHandler(title,elt);
+    }
+    function addRevealHandler(title,elt){
+        title.onclick = function(){
+            if(elt.className == "reveal") elt.className = "revealed";
+            else if (elt.className == "revealed") elt.className = "reveal";
+        }
+    }
+};
+</script>
+
+<!--    left nav end    -->
+<!--    main article    -->
     <div class="main">
 <!--main article-->
     <!--sign in-->
@@ -86,8 +80,8 @@
 
     <!--    article    -->
     <h1><%= blog1[0].Topic %></h1>
-    <p><%= blog1[0].Article %></p>    <!--    use <pre>???    -->
-    <p style="text-align:right"><%= blog1[0].CreateDate %></p>
+    <div style="text-align: left;"><%- blog1[0].Article %></div>   <!--    use <pre>???    -->
+    <p style="text-align:right"><%= blog1[0].CreateDate.toLocaleDateString("zh-CN") %> <%= blog1[0].CreateDate.toLocaleTimeString("zh-CN") %></p>
     </div>
     <!--main end-->
 </div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=" utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>JavaScript实现显示部分内容点击可以展开全部内容</title>
+<style type="text/css">
+#thediv{
+ width:200px;
+ margin:0px auto;
+}
+</style>
+<script type="text/javascript"> 
+function cutStr(){ 
+ var odiv=document.getElementById("thediv"); 
+ var str=odiv.innerHTML; 
+ var ospan=document.createElement("span"); 
+ var olink=document.createElement("a"); 
+ ospan.innerHTML=str.substring(0,20); 
+ olink.innerHTML=str.length>20?"...":""; 
+ olink.href="###"; 
+ olink.onclick=function(){ 
+  if(olink.innerHTML=="..."){ 
+   olink.innerHTML="收起"; 
+   ospan.innerHTML=str; 
+  }
+  else{ 
+   olink.innerHTML="..."; 
+   ospan.innerHTML=str.substring(0,20); 
+  } 
+ } 
+ odiv.innerHTML=""; 
+ odiv.appendChild(ospan); 
+ odiv.appendChild(olink); 
+}; 
+window.onload=function(){
+ cutStr();
+}
+</script> 
+<body>
+<div id="thediv">脚本网欢迎您，个人的力量再强也只是一只强壮的而已，如果有分享和胸怀和合作的精神，那么就有可能活得巨大进步。</div> 
+</body>
+</html>

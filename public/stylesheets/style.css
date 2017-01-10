@@ -18,7 +18,9 @@ pre{
     background-color: #bbbbbb;
     border: 1px solid black;
     font-family: monospace;    /*temp*/
+    font-size: 1.2em;
 }
+
 
 /*   navbar   */
 .navbar{
@@ -100,9 +102,19 @@ ul.navbar>li>a:hover{
     margin: 0px;
 }
 .home .main_article span{
+    background: url(../images/icon/time.png) no-repeat;
+    background-size: 15px;
+    margin-top: 3px;
+    padding-left: 20px;
     float: right;
     font-size: 0.8em;
     font-weight: normal;
+}
+.home .classification {
+    background: url(../images/icon/www.png) no-repeat;
+    background-size: 15px;
+    margin: 0 0 7px 15px;
+    padding: 0 0 7px 20px;
 }
 .home .head_description a{
     color: white;
@@ -115,7 +127,7 @@ ul.navbar>li>a:hover{
 .home .main_article a{
     position: absolute;
     right: 8px;
-    bottom: 8px;
+    bottom: 12px;
     display: block;
     color: rgb(93,43,78);
     background-color: #dddddd;
@@ -133,8 +145,6 @@ ul.navbar>li>a:hover{
 .home .head_description br{
     clear: both;
 }
-
-
 
 
 /*    about page    */
@@ -226,8 +236,8 @@ ul.navbar>li>a:hover{
 }
 
 
-/*    add article page    */
-.add div.form{
+/*    add && modify article page    */
+.add div.form, .modify div.form {
     margin: 0 auto;
     width: 50%;
     margin: 0 auto;
@@ -235,20 +245,21 @@ ul.navbar>li>a:hover{
     font-size: 1.2em;
     font-family:Tahoma, Geneva, sans-serif;
 }
-.add div.form{
+.add div.form, .modify div.form{
     width: 80%;
 }
-.add h2 {
+.add h2, .modify h2 {
     font-size: 2em;
     font-weight: normal;
     padding-bottom: 4px;    
     margin: 25px 0;
 }
-.add .form h2:first-child{
+.add .form h2:first-child,
+.modify .form h2:first-child {
     border-bottom: dotted 2px rgba(5,5,5,.5);
 }
 
-.add label {
+.add label, .modify label {
     margin-bottom: 25px;    
     display: inline-block;
     width: 20%;
@@ -258,7 +269,7 @@ ul.navbar>li>a:hover{
     margin-top: 5px;
     font-weight: bold;
 }
-.add textarea{
+.add textarea, .modify textarea {
     width: 786px;
     max-width: 786px;
     height: 267px;
@@ -268,18 +279,21 @@ ul.navbar>li>a:hover{
     color: rgba(0,0,255,1);
     height: 573px;
 }
-.add input[type="radio"] {
+.add input[type="radio"],
+.modify input[type="radio"] {
     display: inline-block;
     padding-right: 5px;
 }
-.add input[type='text'] {
+.add input[type='text'],
+.modify input[type='text'] {
     border-radius: 10px;
     border: none;
     padding: 5px;
     width: 100%;
 }
 
-.add input[type="submit"] {
+.add input[type="submit"],
+.modify input[type="submit"] {
     margin-left: 220px;
     padding: 10px 25px;
     font-size: 1em;
@@ -292,7 +306,7 @@ ul.navbar>li>a:hover{
 }
 
 /*    login && add article && modify page   */
-.login div.form, .modify div.form{
+.login div.form{
     margin: 0 auto;
     width: 50%;
     margin: 0 auto;
@@ -300,17 +314,16 @@ ul.navbar>li>a:hover{
     font-size: 1.2em;
     font-family:Tahoma, Geneva, sans-serif;
 }
-.modify div.form{
-    width: 80%
-}
-.login h2, .modify h2{
+
+.login h2{
     font-size: 2em;
     font-weight: normal;
     border-bottom: dotted 2px rgba(5,5,5,.5);
     padding-bottom: 4px;	
     margin: 25px 0;
 }
-.login label, .modify label {
+
+.login label {
     margin-bottom: 25px;	
     display: inline-block;
     width: 30%;
@@ -320,22 +333,9 @@ ul.navbar>li>a:hover{
     margin-top: 5px;
     font-weight: bold;
 }
- .modify label{
-    width: 20%
-}
- .modify textarea{
-    width: 786px;
-    max-width: 786px;
-    height: 267px;
-    border-radius: 10px;
-    border: none;
-    background-color: rgba(0,0,90,.3);
-    color: rgba(0,0,255,1);
-}
 
 .login input[type="text"], 
-.login input[type="password"],
-.modify input[type='text']{
+.login input[type="password"] {
     border-radius: 10px;
     border: none;
     background-color: rgba(0,0,90,.3);
@@ -343,19 +343,13 @@ ul.navbar>li>a:hover{
     width: 30%;
     padding: 5px;
 }
-.modify input[type="text"]{
-    width: 786px;
 
-}
 .login input[type="text"]:focus, 
-.login input[type="password"]:focus,
-.modify input[type="text"]:focus,
-.modify textarea:focus{
+.login input[type="password"]:focus {
     background-color: #ffffff;
 
 }
-.login input[type="submit"],
-.modify input[type="submit"] {
+.login input[type="submit"] {
     margin-left: 220px;
     padding: 10px 25px;
     font-size: 1em;

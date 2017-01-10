@@ -73,8 +73,7 @@ router.post('/update/:id', function(req, res, next) {
 	Blog.update({_id:req.params.id},{	//指定文章
 		Classification: req.body.Classification,
 		Topic: req.body.Topic,
-		Article: req.body.Content,
-		CreateDate: Date.now()
+		Article: req.body.Content    //時間不更新
 		},function(err){
 		if(err){console.log('Fail to update article.');}
 		else{console.log('Done')};

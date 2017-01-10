@@ -37,13 +37,14 @@
 <!--    topic end    -->
 </header>
 
+    <% blogs.sort(function(a,b){return b.CreateDate-a.CreateDate}) %>
     <%  blogs.forEach(function(blogs){  %>
     <div class="main_article">
         <h3><%= blogs.Topic %><span>
-        <%= blogs.CreateDate.toLocaleDateString("zh-CN") %> 
+        <%= blogs.CreateDate.toLocaleDateString("zh-CN",{hour: '2-digit', minute:'2-digit'}) %> 
         </span></h3>
         <div class="article"><%- blogs.Article %></div>
-        <%= blogs.Classification %>
+        <div class="classification"><%= blogs.Classification %></div>
         <a href="/tutorial/<%= blogs.id %>">Read More</a>
     </div>
     <%  })  %>
@@ -61,7 +62,7 @@ window.onload = function(){
 </script>
 
 <footer>
-    <p>Copyright © 2016 Lionel</p>
+    <p>Copyright © 2017 Lionel</p>
     <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
     <a href="http://google.com"><img src="../images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>
 </footer>

@@ -7,6 +7,7 @@
     <title>edit article</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+    <script src="../../ckeditor/ckeditor.js"></script>
 </head>
 
 <body class="modify">
@@ -36,7 +37,6 @@
 <!--    topic end    -->
 </header>
 
-
 <div class="form">
     <h2>Edit article</h2>
     <form method="post", action="/apis/update/<%= messageID %>">
@@ -49,22 +49,22 @@
                 <input type="radio" name="Classification" value="Linux">Linux
                 <input type="radio" name="Classification" value="Database">Database
         </p>
+        <!--    Topic    -->
+
+        <h2>
+            <input type="text" name="Topic" placeholder="Topic標題" value=<%= blogs[0].Topic %>>
+        </h2>
         <p>
-            <label>Topic</label>
-            <input type="text" name="Topic" value=<%= blogs[0].Topic %>>
-        </p>
-        <p>
-            <label>Article</label>
             <textarea type="text" name="Content"><%= blogs[0].Article %></textarea>
+            <script>CKEDITOR.replace( 'Content', {});</script>
         </p>
         <input type="submit" name="submit" value="Update">
-
     </form>
 </div>
 
 
 <footer>
-    <p>Copyright © 2016 Lionel</p>
+    <p>Copyright © 2017 Lionel</p>
     <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
     <a href="http://google.com"><img src="../images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>
     

@@ -20,6 +20,11 @@ pre{
     font-family: monospace;    /*temp*/
     font-size: 1.2em;
 }
+pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    *white-space:normal;
+}
 
 
 /*   navbar   */
@@ -163,7 +168,7 @@ ul.navbar>li>a:hover{
     font-size: 1.2em;
     font-family:Tahoma, Geneva, sans-serif;
 }
-@media (max-width:550px) {
+@media (max-width:750px) {
     .about div.introduction{width: 90%;}
 }
 .about h2{
@@ -200,7 +205,7 @@ ul.navbar>li>a:hover{
     font-size: 1.2em;
     font-family:Tahoma, Geneva, sans-serif;
 }
-@media (max-width:550px) {
+@media (max-width:750px) {
     .contact div.form{width: 90%;}
 }
 .contact h2{
@@ -369,10 +374,10 @@ ul.navbar>li>a:hover{
     border-radius: 5px;
     box-shadow: 0 0 4px white;
 }
-@media (max-width:550px) {
+@media (max-width:750px) {
     .login input[type="submit"] {margin-left: 20px;}
     .login div.form{width: 85%;}
-    .login input[type="text"],  .login input[type="password"] {width: 60%;}
+    .login input[type="text"],  .login input[type="password"] {width: 50%;}
 }
 
 /*    login end    */
@@ -383,7 +388,7 @@ div.contentWrapper{
     display: flex;
     align-items: stretch;
     background-color:#222; 
-    margin: 0 auto;
+    margin: 0;
 }
 /*left bar*/
 div.left_nav { 
@@ -393,6 +398,15 @@ div.left_nav {
     padding-bottom: 50px;
     min-height: 1000px;
 }
+/*right bar*/
+div.main{
+    text-align: center;
+    flex: 3;
+    padding: 0px 5% 100px 5%;
+    background-image: linear-gradient(to bottom, rgb(176,194,213), white);
+}
+
+
 .left_nav ul.left_bar li{
     text-decoration: none;
     list-style-type:none;
@@ -401,6 +415,7 @@ div.left_nav {
     padding: 0;
     font-size: 20px;
 }
+/* 左側nav調整 */
 .reveal *{display: none;}
 .handle{display:block;}
 .left_bar a{
@@ -408,16 +423,16 @@ div.left_nav {
     color: white;
 }
 
-
-/*right bar*/
-div.main{
-    text-align: center;
-    flex: 3;
-    padding: 0px 5% 100px 5%;
-    background-image: linear-gradient(to bottom, rgb(176,194,213), white);
-}
 @media (max-width:700px) {
     .left_nav{display:none;}
+    div.contentWrapper{
+        display: block;
+        width: 100%;
+    }
+    div.main{
+        text-align: center;
+        width: 100%;
+    }
 }
 /*    tutorial end    */
 
@@ -450,7 +465,31 @@ footer img:hover{
     transform: rotate(360deg);
 }
 
+/*nav RWD*/
+@media (max-width:400px) {
+    header>ul>li>a,
+    .name,
+    .home .homeLink,
+    .about .aboutLink,
+    .contact .contactLink,
+    .tutorial .tutorialLink,
+    .login .loginLink,
+    .add .addLink {
+        display:block;
+        text-align:center;
+        padding:10px 10px;
+    }
+}
 
 @media (max-width:550px) {
-    footer p{padding-left: 50px;}
+    footer p{padding-left: 20px;}
+    .about table{
+        width: 100%;
+        margin-left: 0;
+    }
+}
+@media (max-width:600px) {
+    .loginLink, .name, .addLink, .loginLink{
+        display: none;
+    }
 }

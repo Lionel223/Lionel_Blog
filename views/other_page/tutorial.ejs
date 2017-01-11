@@ -34,23 +34,51 @@
 
 <!--left nav-->
 <div class="contentWrapper">
-
-    <div class="left_nav">
+    <div class="slide_btn in">Left nav</div>
+    <div class="left_nav in">
         <ul class="left_bar">
                 <% for(i in BlogDistinct){ %>
-                    <li><%= BlogDistinct[i] %>
-                        <ul>
-                            <% all.forEach(function(bb){ %>
-                                <%  if(bb.Classification==BlogDistinct[i]){  %>
-                                    <li><a href="/tutorial/<%= bb.id %>" style="text-decoration: none; color:white"><%= bb.Topic %></a></li>
-                                <% }else{} %>
-                            <% }); %>
+                    <div class="reveal"><li class="handle"><%= BlogDistinct[i] %></li>
+                        <% all.sort(function(a,b){return b.CreateDate-a.CreateDate}) %>
+                        <ul><% all.forEach(function(bb){ 
+                                        if(bb.Classification==BlogDistinct[i]){  %>
+                                    <li><a href="/tutorial/<%= bb.id %>"><%= bb.Topic %></a></li>
+                            <% }}); %>
                         </ul>
-                    </li>
+                    </div>
                 <% }; %>
-
         </ul>
     </div>
+<script>
+//can't use 'window.onload'
+    var btn = document.getElementsByClassName("slide_btn")[0];
+    var left_nav = document.getElementsByClassName("left_nav")[0];
+    change_class(btn,left_nav);
+        //移入或移出(about CSS)
+    function change_class(btn,left_nav){
+        btn.onclick = function(){
+            btn.classList.toggle("in");
+            left_nav.classList.toggle("in");
+        }
+    }
+</script>
+<script>
+window.onload = function(){
+    var elements = document.getElementsByClassName("reveal");
+    for(var i=0;i<elements.length;i++){
+        var elt = elements[i];
+        var title = elt.getElementsByClassName('handle')[0];
+        addRevealHandler(title,elt);
+    }
+    function addRevealHandler(title,elt){
+        title.onclick = function(){
+            if(elt.className == "reveal") elt.className = "revealed";
+            else if (elt.className == "revealed") elt.className = "reveal";
+        }
+    }
+};
+</script>
+
 <!--    left nav end    -->
 <!--    main article    -->
     <div class="main">

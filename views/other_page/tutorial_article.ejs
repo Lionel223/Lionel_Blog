@@ -32,9 +32,12 @@
 <!--    nav end    -->
 </header>
 
+
+
 <!--left nav-->
 <div class="contentWrapper">
 
+    <div class="slide_btn">Left nav</div>
     <div class="left_nav">
         <ul class="left_bar">
                 <% for(i in BlogDistinct){ %>
@@ -50,6 +53,19 @@
         </ul>
     </div>
 
+<script>
+//can't use 'window.onload'
+    var btn = document.getElementsByClassName("slide_btn")[0];
+    var left_nav = document.getElementsByClassName("left_nav")[0];
+    change_class(btn,left_nav);
+        //移入或移出(about CSS)
+    function change_class(btn,left_nav){
+        btn.onclick = function(){
+            btn.classList.toggle("in");
+            left_nav.classList.toggle("in");
+        }
+    }
+</script>
 <script>
 window.onload = function(){
     var elements = document.getElementsByClassName("reveal");
@@ -73,7 +89,7 @@ window.onload = function(){
 <!--main article-->
     <!--sign in-->
     <% if(username && authenticated){    %>
-        <p style="float: right"><a href="/users/modify/<%= blog1[0].id %>" style="text-decoration:none">編輯</a>/<a href="/apis/delete/<%= blog1[0].id %>">刪除</a>此篇文章</p>    <!--modify article-->
+        <p style="float: right"><div id="a">asdfasdfsad</div><a href="/users/modify/<%= blog1[0].id %>" style="text-decoration:none">編輯</a>/<a href="/apis/delete/<%= blog1[0].id %>">刪除</a>此篇文章</p>    <!--modify article-->
     <%    }else{    %>
     <!--sign out-->
     <%    }    %>

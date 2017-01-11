@@ -1,30 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=" utf-8">
-<meta name="author" content="http://www.softwhy.com/" />
-<title>JavaScript实现显示部分内容点击可以展开全部内容</title>
-<style type="text/css">
-#thediv{
- width:200px;
- margin:0px auto;
-}
-</style>
-<script>
-function partial_article(){
-    var article = document.getElementsByClassName("article");
-    for(i=0; i<article.length;i++){
-        article[i].textContent = article[i].textContent.substring(0,10);
-    }
-};
-window.onload = function(){
-    partial_article();
-}
-</script>
-
-</script> 
 <body>
-<div class="article">脚本网欢迎您，个人的力量再强也只是一只强壮的而已，如果有分享和胸怀和合作的精神，那么就有可能活得巨大进步。</div> 
-<div class="article">使用字型 若是由一個以上的單字所組成，必須加上雙引號 Serif字型 被認為是長篇文字最好的選擇，筆劃後端短小的足被認為可溫和地引導視線，讓文字易於閱讀，最常	用的字型為Times、Time New Roman、Georgia Sans-serif字型 乾淨簡潔的樣式，經常使用於標題，常用的字型為Arial、Helvetica、Verdana Monospaced(等寬)字型 經常使用於電腦程式碼，常用字型為Courier New、Courier 其他常用字型 Arial Black、Arial Narrow、Impact *Arial Black和Impact要注意，他們只有單一磅數，沒有斜體版本，使用時要確保font-weight和font-	style設定成normal，否則若文字是粗體或斜體，瀏覽器會胡亂猜測文字呈現方式 使用上面文字只需要使用font-family屬性，但此屬性會被限制於網站瀏覽者自身電腦所安裝的字型，不過大部分瀏覽器支援網頁字型，可從伺服器下載字型，可使用 @font-face告知瀏覽器字型名字與下載位置，再用font-family來使用此字型 字體檔案類型(P134) EOT TureTpye OpenType WOFF SVG 尋找網頁字型(P136) The League of Moveable Type Exljbris font foundry The Open Font Library Font Squirrel Google Fonts font-weight:normal(正常);	bold(粗體) normal(正常);	italic(斜體) (P168) google字型(P150~P157)</div> 
+	<div id="a">aaaaaaaaa</div>
+	<script>
+		var a = document.getElementById('a');
+		a.onclick = function(){alert('test');};
+	</script>
 </body>
 </html>

@@ -5,6 +5,7 @@
     <script src=”//html5shiv.googlecode.com/svn/trunk/html5.js”></script>
     <![endif]-->
     <title>Lionel's blog</title>
+    <meta name="viewport" content="width=device-width">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css"  href="../stylesheets/style.css">
 
@@ -37,6 +38,7 @@
 <!--    topic end    -->
 </header>
 
+<div class="main_page">
     <% blogs.sort(function(a,b){return b.CreateDate-a.CreateDate}) %>
     <%  blogs.forEach(function(blogs){  %>
     <div class="main_article">
@@ -48,7 +50,15 @@
         <a href="/tutorial/<%= blogs.id %>">Read More</a>
     </div>
     <%  })  %>
-<br><br>
+    <br><br>
+</div>
+
+<footer>
+    <p>Copyright © 2017 Lionel</p>
+    <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
+    <!--<a href="http://google.com"><img src="../images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>  -->
+</footer>
+
 <script>
 function partial_article(){
     var article = document.getElementsByClassName("article");
@@ -60,12 +70,6 @@ window.onload = function(){
     partial_article();
 }
 </script>
-
-<footer>
-    <p>Copyright © 2017 Lionel</p>
-    <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
-    <a href="http://google.com"><img src="../images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>
-</footer>
 
 </body>
 </html>

@@ -5,6 +5,7 @@
     <script src=”//html5shiv.googlecode.com/svn/trunk/html5.js”></script>
     <![endif]-->
     <title><%= blog1[0].Topic %></title>
+    <meta name="viewport" content="width=device-width">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css"  href="../stylesheets/style.css">
 </head>
@@ -82,7 +83,7 @@ window.onload = function(){
     <!--    article    -->
     <h1><%= blog1[0].Topic %></h1>
     <div style="text-align: left;"><%- blog1[0].Article %></div>   <!--    use <pre>???    -->
-    <p style="text-align:right"><%= blog1[0].CreateDate.toLocaleDateString("zh-CN") %> <%= blog1[0].CreateDate.toLocaleTimeString("zh-CN",{hour: '2-digit', minute:'2-digit'}) %></p>
+    <p style="text-align:right"><%= blog1[0].CreateDate.toLocaleDateString("zh-CN") %> <%= blog1[0].CreateDate.toLocaleTimeString("mong",{hour: '2-digit', minute:'2-digit'}) %></p>
     </div>
     <!--main end-->
 </div>
@@ -90,7 +91,7 @@ window.onload = function(){
 <footer>
     <p>Copyright © 2017 Lionel</p>
     <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
-    <a href="http://google.com"><img src="/images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>    
+    <!--<a href="http://google.com"><img src="/images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>    -->
 </footer>
 
 </body>

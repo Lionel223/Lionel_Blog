@@ -91,9 +91,17 @@ ul.navbar>li>a:hover{
 .home a{
     text-decoration: none;
 }
+.home .main_page {
+    width: 80%;
+    margin: auto;
+
+}
+@media (max-width:550px) {
+    .home .main_page{width: 90%;}
+}
 .home .main_article{
     border: 1px black solid;
-    margin: 50px 200px;
+    margin: 50px 0px;
     position: relative;
 }
 .home .main_article h3{
@@ -148,16 +156,15 @@ ul.navbar>li>a:hover{
 
 
 /*    about page    */
-.about .introduction {
-    margin: 50px 200px;
-}
 .about div.introduction{
     margin: 0 auto;
     width: 67%;
-    margin: 0 auto;
     padding-bottom: 80px;
     font-size: 1.2em;
     font-family:Tahoma, Geneva, sans-serif;
+}
+@media (max-width:550px) {
+    .about div.introduction{width: 90%;}
 }
 .about h2{
     font-size: 2em;
@@ -189,10 +196,12 @@ ul.navbar>li>a:hover{
 .contact div.form{
     margin: 0 auto;
     width: 67%;
-    margin: 0 auto;
     padding-bottom: 80px;
     font-size: 1.2em;
     font-family:Tahoma, Geneva, sans-serif;
+}
+@media (max-width:550px) {
+    .contact div.form{width: 90%;}
 }
 .contact h2{
     font-size: 2em;
@@ -360,6 +369,12 @@ ul.navbar>li>a:hover{
     border-radius: 5px;
     box-shadow: 0 0 4px white;
 }
+@media (max-width:550px) {
+    .login input[type="submit"] {margin-left: 20px;}
+    .login div.form{width: 85%;}
+    .login input[type="text"],  .login input[type="password"] {width: 60%;}
+}
+
 /*    login end    */
 
 
@@ -393,6 +408,7 @@ div.left_nav {
     color: white;
 }
 
+
 /*right bar*/
 div.main{
     text-align: center;
@@ -400,7 +416,9 @@ div.main{
     padding: 0px 5% 100px 5%;
     background-image: linear-gradient(to bottom, rgb(176,194,213), white);
 }
-
+@media (max-width:700px) {
+    .left_nav{display:none;}
+}
 /*    tutorial end    */
 
 footer{
@@ -430,4 +448,9 @@ footer img{
 }
 footer img:hover{
     transform: rotate(360deg);
+}
+
+
+@media (max-width:550px) {
+    footer p{padding-left: 50px;}
 }

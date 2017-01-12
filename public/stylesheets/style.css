@@ -39,10 +39,13 @@ pre{
 ul.navbar li{
     float:left;
 }
-
-ul.navbar li.loginLink, ul.navbar li.name, ul.navbar li.addLink{
+ul.navbar li.loginLink, 
+ul.navbar li.name, 
+ul.navbar li.addLink, 
+ul.navbar li.more{
     float:right;
 }
+
 
 header>ul>li>a,
 .name,
@@ -56,6 +59,7 @@ header>ul>li>a,
     text-align:center;
     padding:10px 20px;
 }
+.more, .drop_down {display:none;}
 .home .homeLink,    /*add bottom line*/
 .about .aboutLink,
 .contact .contactLink,
@@ -72,6 +76,39 @@ ul.navbar li a, ul.navbar li{
 }
 ul.navbar>li>a:hover{
     background-color: rgb(93,43,78);
+}
+
+/*nav RWD*/
+@media (max-width:450px) {
+    header>ul>li>a,
+    .home .homeLink,
+    .about .aboutLink,
+    .contact .contactLink,
+    .tutorial .tutorialLink{
+        display:block;
+        text-align:center;
+        padding:10px 10px;
+    }
+}
+@media (max-width:750px) {
+    .loginLink, .name, .addLink, .add .addLink, .loginLink{
+        display: none;
+    }
+    .more{display: block; padding: 0px 10px 0px 0;}
+    .drop_down{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        right:0;
+        display: block;
+    }
+    .more_nav{
+        background-color: black;
+        width: 8em;
+        display:block;
+    }
+    .more_nav a{color:white;text-decoration: none;}
+    .slide_nav{display: none;}
 }
 
 
@@ -99,7 +136,6 @@ ul.navbar>li>a:hover{
 .home .main_page {
     width: 80%;
     margin: auto;
-
 }
 
 .home .main_article{
@@ -450,8 +486,6 @@ ul.navbar>li>a:hover{
     }
     .tutorial .left_nav.in{left: 0;}
     .tutorial .slide_btn.in{left: 80%;}
-
-
     .tutorial div.main{
         text-align: center;
         width: 100%;
@@ -495,26 +529,7 @@ footer img:hover{
 
 
 
-/*nav RWD*/
-@media (max-width:400px) {
-    header>ul>li>a,
-    .name,
-    .home .homeLink,
-    .about .aboutLink,
-    .contact .contactLink,
-    .tutorial .tutorialLink,
-    .login .loginLink,
-    .add .addLink {
-        display:block;
-        text-align:center;
-        padding:10px 10px;
-    }
-}
-@media (max-width:600px) {
-    .loginLink, .name, .addLink, .loginLink{
-        display: none;
-    }
-}
+
 /*main page*/
 @media (max-width:550px) {
     .home .main_page{width: 90%;}
@@ -536,10 +551,15 @@ footer img:hover{
     .contact div.form{width: 90%;}
 }
 
-
 /*login page*/
 @media (max-width:750px) {
     .login input[type="submit"] {margin-left: 20px;}
     .login div.form{width: 85%;}
     .login input[type="text"],  .login input[type="password"] {width: 50%;}
+}
+@media (max-width:750px) {
+    .add input[type="submit"],
+    .modify input[type="submit"] {
+        margin-left: 20px;
+    }
 }

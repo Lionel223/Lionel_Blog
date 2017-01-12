@@ -19,6 +19,7 @@
         <li><a href="/about" class="aboutLink">about</a></li>
         <li><a href="/contact" class="contactLink">contact</a></li>
         <li class="tutorialLink">tutorial</li>
+        <li class="more"><img src="../images/icon/down.svg" ></li>
         <!--sign in-->
         <%    if(username && authenticated){    %>
         <li class="loginLink"><a href="/users/signout">sign out</a></li>
@@ -29,6 +30,25 @@
         <li class="loginLink"><a href="/users/signin">sign in</a></li>
         <%    }    %>
     </ul>
+    <ul class="drop_down slide_nav">
+        <%    if(username && authenticated){    %>
+            <li class="more_nav"><a href="/users/signout">sign out</a></li>
+            <li class="more_nav"><a href="/users/add_article">add article</a></li>
+            <!--sign out-->
+        <%    }else{    %>
+            <li class="more_nav"><a href="/users/signin">sign in</a></li>
+        <%    }    %>
+    </ul>
+<script>
+var more_btn = document.getElementsByClassName("more")[0];
+var drop_down = document.getElementsByClassName("drop_down")[0];
+slide(more_btn, drop_down);
+function slide(btn, drop_down){
+    btn.onclick = function(){
+        drop_down.classList.toggle("slide_nav");
+    }
+}
+</script>    
 <!--    nav end    -->
 </header>
 
@@ -54,11 +74,10 @@
     </div>
 
 <script>
-//can't use 'window.onload'
+
     var btn = document.getElementsByClassName("slide_btn")[0];
     var left_nav = document.getElementsByClassName("left_nav")[0];
     change_class(btn,left_nav);
-        //移入或移出(about CSS)
     function change_class(btn,left_nav){
         btn.onclick = function(){
             btn.classList.toggle("in");
@@ -89,7 +108,7 @@ window.onload = function(){
 <!--main article-->
     <!--sign in-->
     <% if(username && authenticated){    %>
-        <p style="float: right"><div id="a">asdfasdfsad</div><a href="/users/modify/<%= blog1[0].id %>" style="text-decoration:none">編輯</a>/<a href="/apis/delete/<%= blog1[0].id %>">刪除</a>此篇文章</p>    <!--modify article-->
+        <p style="float: right"><a href="/users/modify/<%= blog1[0].id %>" style="text-decoration:none">編輯</a>/<a href="/apis/delete/<%= blog1[0].id %>">刪除</a>此篇文章</p>    <!--modify article-->
     <%    }else{    %>
     <!--sign out-->
     <%    }    %>

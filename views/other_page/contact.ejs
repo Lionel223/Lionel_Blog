@@ -18,6 +18,7 @@
         <li><a href="/about" class="aboutLink">about</a></li>
         <li class="contactLink">contact</li>
         <li><a href="/tutorial" class="tutorialLink">tutorial</a></li>
+        <li class="more"><img src="../images/icon/down.svg" ></li>
         <!--sign in-->
         <%    if(username && authenticated){    %>
         <li class="loginLink"><a href="/users/signout">sign out</a></li>
@@ -28,6 +29,25 @@
         <li class="loginLink"><a href="/users/signin">sign in</a></li>
         <%    }    %>
     </ul>
+    <ul class="drop_down slide_nav">
+        <%    if(username && authenticated){    %>
+            <li class="more_nav"><a href="/users/signout">sign out</a></li>
+            <li class="more_nav"><a href="/users/add_article">add article</a></li>
+            <!--sign out-->
+        <%    }else{    %>
+            <li class="more_nav"><a href="/users/signin">sign in</a></li>
+        <%    }    %>
+    </ul>
+<script>
+var more_btn = document.getElementsByClassName("more")[0];
+var drop_down = document.getElementsByClassName("drop_down")[0];
+slide(more_btn, drop_down);
+function slide(btn, drop_down){
+    btn.onclick = function(){
+        drop_down.classList.toggle("slide_nav");
+    }
+}
+</script>
 <!--    nav end    -->
 <!--    topic    -->
     <div class="head_description">

@@ -33,17 +33,17 @@
 <!--    nav end    -->
 <!--    topic    -->
     <div class="head_description">
-        <h1>Test<!--add article--></h1>
+        <h1>Add article</h1>
     </div>
 <!--    topic end    -->
 </header>
 
 <div class="form">
     <h2>Add Article</h2>
-    <form method="post", action="/apis/add">
+    <form name="add" method="post" action="/apis/add" onsubmit="return validateForm()">
         <!--Classification-->    <!--    使用mongodb存取classification    -->
         <p>    
-            <label>Select a classification</label>
+            <span style="font-weight: bold;">Select a classification</span>
             <input type="radio" name="Classification" value="HTML">HTML &amp CSS
             <input type="radio" name="Classification" value="Javascript">Javascript
             <input type="radio" name="Classification" value="Node">Node
@@ -51,25 +51,69 @@
             <input type="radio" name="Classification" value="Database">Database
             <input type="radio" name="Classification" value="test">增加新類別
         </p>
+        <p class="warning"></p>
         <!--    Topic    -->
         <h2>
             <input type="text" name="Topic" placeholder="Topic標題">
         </h2>
+        <p class="warning"></p>
         <!--    main article    -->
         <p>
             <textarea type="text" name="Content"></textarea>
             <script>CKEDITOR.replace( 'Content', {});</script>
         </p>
+        <p class="warning"></p>
         <input type="submit" name="submit" value="save">
     </form>
 
 </div>
+<script>
+
+function validateForm() {
+    var radioValid = false;
+    var topicValid = true;
+
+    //Classification
+    var radio = document.getElementsByName("Classification");
+    for(i = 0; i < radio.length; i++){
+        if(radio[i].checked) radioValid = true;
+    }
+    if (!radioValid){
+        para = document.getElementsByClassName('warning')[0];
+        para.textContent = "分類尚未選取!";
+        para.style.color = "red";
+        para.style.display = "block";
+
+    }else{
+        para.style.display = "none";
+    }
+    //Topic
+    var Topic = document.forms["add"]["Topic"].value;
+    if(Topic == "" || Topic == null){
+        topicValid = false;
+        para1 = document.getElementsByClassName('warning')[1];
+        para1.textContent = "標題尚未填寫";
+        para1.style.color = "red";
+        para1.style.display = "block";
+
+    }else{
+        topicValid == true;
+        para1.style.display = "none";
+    }
+
+    
+    //All Valid
+    if(!radioValid || !topicValid){ 
+        return false;
+    }
+    return false;
+}
+</script>
 
 
 <footer>
     <p>Copyright © 2017 Lionel</p>
-    <a href="http://google.com"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
-    <a href="http://google.com"><img src="../images/LinkedIn_logo/linkedin_logo_package/LinkedIn%20%5Bin%5D/Screen/White/In-White-34px-R.png" ></a>
+        <a href="https://github.com/Lionel223"><img src="../images/GitHub-Mark/PNG/GitHub-Mark-Light-32px.png" ></a>
     
 </footer>
 

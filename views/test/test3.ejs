@@ -2,10 +2,33 @@
 <html>
 <head>
 <body>
-	<div id="a">aaaaaaaaa</div>
-	<script>
-		var a = document.getElementById('a');
-		a.onclick = function(){alert('test');};
-	</script>
+
+<form name="form1" action="#" onsubmit="return validateForm()" method="post"> 
+    First time visitor?:<br/>
+            <label for="s1">Yes</label>
+            <input type="radio" id="radio1" name="yesno" value="1"/>
+            <br/>
+            <label for="s2">No</label>
+            <input type="radio" id="radio2" name="yesno" value="2"/>
+            <br/>
+            <input type="submit" value="Submit"><br />       
+</form>
+
+<script>
+function validateForm() {
+    var radios = document.getElementsByName("yesno");
+    var formValid = false;
+
+    var i = 0;
+    while (!formValid && i < radios.length) {
+        if (radios[i].checked) formValid = true;
+        i++;        
+    }
+
+    if (!formValid) alert("Must check some option!");
+    return formValid;
+}
+</script>
+
 </body>
 </html>

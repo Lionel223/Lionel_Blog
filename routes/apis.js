@@ -65,7 +65,6 @@ router.get('/delete/:id', function(req, res, next) {
     //params (look express 4)    
     //http://expressjs.com/en/guide/routing.html#route-parameters
         if(err){console.log("Fail to delete article.");}
-        //err=error?    which mean err is not NaN?
         else{console.log("Done");}
     });
     res.redirect('/tutorial');

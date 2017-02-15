@@ -3,7 +3,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Blog = mongoose.model('Blog');
-var markdown = require('markdown').markdown;
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -48,7 +48,7 @@ router.get('/tutorial/:id',function(req,res,next){
     res.locals.username = req.session.name;
     res.locals.authenticated = req.session.logined;
     res.locals.messageID = req.params.id;
-    Blog.find(function(err,all,count){    //mongo語法
+    Blog.find({}).exec(function(err,all,count){    //mongo語法
         Blog.find().distinct("Classification",function(err,BlogDistinct){
             Blog.find({_id:req.params.id},function(err,blog1){
                 if(err){

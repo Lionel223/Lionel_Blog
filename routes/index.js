@@ -44,6 +44,7 @@ router.get('/tutorial',function(req,res,next){
         });
     });
 });
+
 router.get('/tutorial/:id',function(req,res,next){
     res.locals.username = req.session.name;
     res.locals.authenticated = req.session.logined;
@@ -66,7 +67,9 @@ router.get('/tutorial/:id',function(req,res,next){
     });
 });
 
-
+router.get('/about_detail',function(req,res){
+    res.render('./other_page/about(detail)');
+});
 
 //貪吃蛇
 router.get('/snake',function(req,res){
